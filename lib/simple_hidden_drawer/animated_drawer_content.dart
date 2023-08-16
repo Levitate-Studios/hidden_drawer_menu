@@ -60,8 +60,13 @@ class _AnimatedDrawerContentState extends State<AnimatedDrawerContent> {
             contentScale = 1.0 -
                 (((100 - widget.verticalScalePercent) / 100) * animatePercent);
 
-          if (widget.enableCornerAnimation)
+           if (widget.enableCornerAnimation)
             cornerRadius = widget.contentCornerRadius * animatePercent;
+          else{
+            if(animatePercent==0)
+            cornerRadius=widget.contentCornerRadius*animatePercent;
+            else
+            cornerRadius=widget.contentCornerRadius;}
 
           slideAmount = widget.typeOpen == TypeOpen.FROM_LEFT
               ? slideAmount
